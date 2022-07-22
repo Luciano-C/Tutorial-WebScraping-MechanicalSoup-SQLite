@@ -72,3 +72,25 @@ dictionary = {"Distribution": distribution}
 for i in range(11):
     dictionary[column_names[i]] = [element[i] for element in table]
 
+
+# Get data in dataframe
+df = pd.DataFrame(data=dictionary)
+
+# Insert data into database
+connection = sqlite3.connect("linux_distro.db") 
+cursor = connection.cursor()
+
+
+cursor.execute(f"create table if not exists linux {tuple(df.columns)}")
+for i in range(len(df)):
+    cursor.execute("insert into linux values (?,?,?,?,?,?,?,?,?,?,?,?)", df.iloc[i])
+
+
+connection.commit()
+# Now ready for querys
+""" cursor.execute("select founder from linux where founder = 'AlmaLinux Foundation';")
+results = cursor.fetchall() 
+print(results) """
+connection.close()
+
+

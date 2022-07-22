@@ -1,5 +1,7 @@
 ## Link tutorial
 
-https://www.youtube.com/watch?v=MkGQmZoMuRM&t=2s
+https://www.youtube.com/watch?v=MkGQmZoMuRM
 
-Tiempo: 14:00
+
+
+<p>*Delete linux_distro.db when running to avoid duplicates.</p>
